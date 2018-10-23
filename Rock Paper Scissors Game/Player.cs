@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rock_Paper_Scissors_Game
 {
-    class Player
+    abstract class Player
     {
         protected string name;
         protected string rpsValue;
@@ -30,23 +30,7 @@ namespace Rock_Paper_Scissors_Game
         }
         //Methods
 
-        public virtual string GenRPS(int r)
-        {
-            switch (r)
-            {
-                case 0:
-                    return RPS.Paper;
-                    break;
-                case 1:
-                    return RPS.Rock;
-                    break;
-                case 2:
-                    return RPS.Scisors;
-                    break;
-                default:
-                    break;
-            }
-            return "";
-        }       
+        public abstract string GenRPS(int r);
+               
     }
 }

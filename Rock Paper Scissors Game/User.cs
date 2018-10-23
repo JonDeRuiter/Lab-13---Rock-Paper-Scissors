@@ -14,33 +14,34 @@ namespace Rock_Paper_Scissors_Game
         }
         public override string GenRPS(int r)
         {
-            Console.Write("Please pick: \n     Rock \n     Paper \n     Scissors\n");
-            return Choice(Console.ReadLine());
+            Console.Write("Please pick: \n     1.Rock \n     2.Paper \n     3.Scissors\n (1, 2, 3) ");
+            return NumChoice(Console.ReadLine());
 
         }
-
-        public string Choice(string input)
+                    
+        
+        public string NumChoice(string input)
         {
-            input = Validator.IsABC(input);
-            input = input.ToLower();
-            switch (input)
+            int x = Validator.DigitInRange(input, 3);
+            switch (x)
             {
-                case "rock":
+                case 1:
                     return "Rock";
                     break;
-                case "paper":
+                case 2:
                     return "Paper";
                     break;
-                case "scissors":
+                case 3:
                     return "Scissors";
                     break;
                 default:
-                    Console.WriteLine("That was an invalid choice. \nPlease pick from \n     Rock\n     Paper\n     Scissors");
-                    input = Choice(Console.ReadLine());
+                    Console.WriteLine("Please use 1, 2, or 3 to pick:\n     1. Rock\n     2. Paper\n     3. Scissors \n)");
+                    input = NumChoice(Console.ReadLine());
                     break;
             }
             return input;
-            
-        }
+
+        } 
+       
     }
 }

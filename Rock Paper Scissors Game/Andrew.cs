@@ -15,7 +15,23 @@ namespace Rock_Paper_Scissors_Game
 
         public override string GenRPS(int r)
         {
-            return base.GenRPS(r);
+            {
+                switch (r)
+                {
+                    case 0:
+                        return RPS.Paper;
+                        break;
+                    case 1:
+                        return RPS.Rock;
+                        break;
+                    case 2:
+                        return RPS.Scisors;
+                        break;
+                    default:
+                        break;
+                }
+                return "";
+            }
         }
     }
 }

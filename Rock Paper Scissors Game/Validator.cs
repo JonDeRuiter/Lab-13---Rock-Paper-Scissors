@@ -80,32 +80,76 @@ namespace Rock_Paper_Scissors_Game
             return input;
 
         }
-        public static bool PvPChoice()
+        public static int IsDigit(string input)
         {
-            string input = IsABC(Console.ReadLine());
+            char[] charArray = input.ToCharArray();
+            int x;
             try
             {
-                input = input.ToLower();
-                if (input == "peter")
+                for (int i = 0; i < charArray.Length; i++)
                 {
-                    return true;
+                    if (!(char.IsDigit(charArray[i])))
+                    {
+                        throw new Exception("Entry must be an integer.");
+                    }
                 }
-                else if (input == "andrew")
+                return int.Parse(input);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return x = IsDigit(Console.ReadLine());
+            }
+        }
+        public static int DigitInRange(string input, int y)
+        {
+            int x;
+            try
+            {
+                x = IsDigit(input);
+                if (x <= y && x > 0)
                 {
-                    return false;
+                    return x;
                 }
                 else
                 {
-                    throw new Exception("The only two valid inputs are Peter and Andrew");
+                    throw new Exception($"Your input {x} is not within the range of {y}.");
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.Write("Please try again: ");
-                return PvPChoice();
-                throw;
+                x = DigitInRange(Console.ReadLine(), y);
+                return x;
             }
         }
+        //public static bool PvPChoice()
+        //{
+        //    string input = IsABC(Console.ReadLine());
+        //    try
+        //    {
+        //        input = input.ToLower();
+        //        if (input == "peter")
+        //        {
+        //            return true;
+        //        }
+        //        else if (input == "andrew")
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("The only two valid inputs are Peter and Andrew");
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        Console.Write("Please try again: ");
+        //        return PvPChoice();
+        //        throw;
+        //    }
+        //}
     }
 }

@@ -13,11 +13,12 @@ namespace Rock_Paper_Scissors_Game
             int wins, losses, ties;
             wins = 0; losses = 0; ties = 0;
             Random r = new Random();
-            string wlt;
+            string wlt; //stands for "Win Loss Tie"
 
             Console.WriteLine("You have entered the Rock Paper Scissors Simulator");
             Console.Write("Welcome! What's your name?: ");            
             User playerOne = new User(Console.ReadLine());
+
             do
             {
                 Player p = Opponent();
@@ -86,9 +87,9 @@ namespace Rock_Paper_Scissors_Game
         public static Player Opponent()
         {
             Player p;
-            Console.WriteLine("Who would you like to play agains?: \n     Peter \n     Andrew");
-
-            if (Validator.PvPChoice())
+            Console.WriteLine("Who would you like to play agains?: \n    1. Peter \n    2. Andrew");
+            int x = Validator.DigitInRange(Console.ReadLine(), 2);
+            if (x == 1)
             {
                 p = new Peter();
             }
